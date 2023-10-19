@@ -14,17 +14,23 @@
     padding: 2px 2px;
     color: rgb(0, 0, 0);
     text-align: center;
-    background-color: #ece91f;
+    background-color: #FD8535;
     display: block;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+    height: 132px;
 
 }
 
+.header text {
+    margin-left: 2px;
+}
+
+
 .header img {
-    max-width: 100px;
+    max-width: 70px;
     height: auto;
-    
+    margin-right: 10px
 }
 </style>
