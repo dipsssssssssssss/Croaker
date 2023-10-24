@@ -20,40 +20,42 @@
       <div class="actions">
         <button @click="logout">Logout</button>
       </div>
+
     </div>
-  
-      <div class="container">
-        <textarea v-model="tweetContent" placeholder="What's happening?"></textarea>
-        <button @click="createTweet">Tweet</button>
-        <ul class="tweet-list">
-          <li v-for="(tweet, index) in tweets" :key="index">{{ tweet }}</li>
-        </ul>
+    <div class="main-content">
+      <div class="tweet-container">
+        <textarea v-model="tweetText" class="tweet-input" placeholder="What's on your mind?"></textarea>
+        <input type="file" accept="image/*" class="image-upload" />
+
+        <button @click="postTweet" class="tweet-button">Tweet</button>
       </div>
-      <div class="search-tweets">
-        <input type="text" placeholder="Search Tweets" />
+      <div class="tweets">
+        <div v-for="(tweet, index) in tweets" :key="index" class="tweet">
+        </div>
       </div>
       <router-view></router-view>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import router from '@/router';
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 
 
 const profileImageUrl = 'profile.jpg';
 const username = 'Dipshika';
+const tweetText = ref('');
+const uploadedImage = ref(null);
+const tweets = reactive({ list: [] });
 
-const tweetContent = ref('');
-const tweets = ref<string[]>([]);
 
-const createTweet = () => {
-  if (tweetContent.value) {
-    tweets.value.push(tweetContent.value);
-    tweetContent.value = '';
-  }
+
+const postTweet = () => {
+
+  tweetText.value = '';
+  uploadedImage.value = null;
 };
-
 
 const logout = () => {
 
@@ -146,63 +148,42 @@ nav li {
   background-color: #000000;
 }
 
-
-.search-tweets {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-
-}
-
-.search-tweets input {
+.main-content {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #000000;
+  padding: 20px;
+}
+
+.tweet-container {
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
   border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; 
+.tweet-input {
+  width: 100%;
+  height: 100px;
+  border: none;
+  outline: none;
+  resize: none;
 }
 
-textarea {
-  max-width: 100%; 
+.image-upload {
+  margin-top: 10px;
 }
 
-
-.container button {
+.tweet-button {
   background-color: green;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 999px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-.container button:hover {
+.tweet-button:hover {
   background-color: #000000;
-}
-
-textarea {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.tweet-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tweet-list li {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 5px 0;
 }
 </style>
