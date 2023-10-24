@@ -32,6 +32,7 @@
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -54,13 +55,6 @@ const toggleMode = () => {
 const validateEmail = (email: string) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,4}$/;
   return emailRegex.test(email);
-};
-
-const authenticateUser = (username: string, password: string) => {
-  if (username === 'demo' && password === 'demo') {
-    return true;
-  }
-  return false;
 };
 
 const validateAndSaveUser = (username: string, email: string, password: string) => {
@@ -98,13 +92,6 @@ const signIn = () => {
   signInErrors.value.username = '';
   signInErrors.value.password = '';
 
-  if (authenticateUser(username, password)) {
-    
-    const authenticatedUser = { username, password };
-    localStorage.setItem('userData', JSON.stringify(authenticatedUser));
-
-    router.push('/dashboard');
-  }
 };
 
 const signUp = () => {
@@ -113,7 +100,7 @@ const signUp = () => {
   const password = signUpPassword.value;
 
   if (validateAndSaveUser(username, email, password)) {
-    router.push('/dashboard');
+    router.push('/dashboards');
   }
 };
 </script>
@@ -169,7 +156,7 @@ button {
 }
 
 button:hover {
-  background-color: #FD8535;
+  background-color: green;
 }
 
 a {
@@ -180,7 +167,7 @@ a {
 }
 
 .error {
-  color: #f02626; 
+  color: #000000;
   font-size: 14px;
   margin-top: 5px;
 }

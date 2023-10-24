@@ -4,7 +4,6 @@
 
 <template>
     <div class="header">
-        <img src="croaks.png" alt="Croaker Logo">
         <h1>Croaker</h1>
     </div>
 </template>
@@ -12,25 +11,23 @@
 <style scoped>
 .header {
     padding: 2px 2px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;
-    background-color: #FD8535;
-    display: block;
+    background-color: green;
+    display: flex;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-weight: bold;
-    height: 132px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
 
 }
 
-.header text {
+.header h1 {
     margin-left: 2px;
-}
-
-
-.header img {
-    max-width: 70px;
-    height: auto;
-    margin-right: 10px
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px
 }
 </style>
