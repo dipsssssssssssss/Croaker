@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2022": true
+  },
+  "extends": [
+    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-recommended",
+    "@vue/eslint-config-typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "vue/no-required-prop-with-default": ["error"],
+    "no-console": "off",
+    "no-debugger": "off",
+    "semi": "off",
+    "one-var": "off",
+    "no-trailing-spaces": "off",
+    "padded-blocks": "off",
+    "no-mixed-operators": "off",
+    "no-prototype-builtins": "off",
+    "no-extend-native": ["error", {
+      "exceptions": ["Promise"]
+    }],
+    "prefer-const": "error",
+    "comma-dangle": ["error", {
+      "functions": "never",
+      "arrays": "always-multiline",
+      "objects": "always-multiline"
+    }],
+    "object-curly-spacing": ["error", "always"],
+    "key-spacing": ["error", { "afterColon": true }],
+    "vue/no-unused-vars": "error",
+    "vue/no-unused-components": ["error", {
+      "ignoreWhenBindingPresent": true
+    }],
+    "vue/script-setup-uses-vars": "error",
+    "@typescript-eslint/type-annotation-spacing": ["error", { "before": false, "after": true }],
+    "vue/multi-word-component-names": 0,
+    "vue/require-default-prop": 0,
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "semi",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": false
+      }
+    }],
+    "@typescript-eslint/no-explicit-any": ["off"]
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "vueFeatures": {
+      "filter": true,
+      "interpolationAsNonHTML": false
+    }
+  },
+  "ignorePatterns": ["*.test.js"]
+}

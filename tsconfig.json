@@ -1,14 +1,41 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+    "compilerOptions": {
+        "isolatedModules": true,
+        "strict": false,
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "noUnusedLocals": true,
+        "baseUrl": ".",
+        "types": [
+            "node",
+            "webpack-env",
+            "vue/types",
+            "vue-router/types",
+            "vitest/globals"
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
     },
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.vitest.json"
-    }
-  ]
+    "include": [
+        "src/**/*.vue"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/**/*.test.js"
+    ]
 }

@@ -1,29 +1,59 @@
 <template>
   <div class="authentication">
-    <div v-if="isSignIn" class="form-container signin-form">
+    <div
+      v-if="isSignIn"
+      class="form-container signin-form"
+    >
       <h2>Sign In</h2>
       <form @submit.prevent="signIn">
-        <input type="text" v-model="signInUsername" placeholder="Username" />
+        <input
+          v-model="signInUsername"
+          type="text"
+          placeholder="Username"
+        >
         <span class="error">{{ signInErrors.username }}</span>
-        <input type="password" v-model="signInPassword" placeholder="Password" />
+        <input
+          v-model="signInPassword"
+          type="password"
+          placeholder="Password"
+        >
         <span class="error">{{ signInErrors.password }}</span>
-        <button type="submit">Sign In</button>
+        <button type="submit">
+          Sign In
+        </button>
       </form>
       <p>
         Don't have an account? <a @click="toggleMode">Sign Up</a>
       </p>
     </div>
 
-    <div v-else class="form-container signup-form">
+    <div
+      v-else
+      class="form-container signup-form"
+    >
       <h2>Sign Up</h2>
       <form @submit.prevent="signUp">
-        <input type="text" v-model="signUpUsername" placeholder="Username" />
+        <input
+          v-model="signUpUsername"
+          type="text"
+          placeholder="Username"
+        >
         <span class="error">{{ signUpErrors.username }}</span>
-        <input type="email" v-model="signUpEmail" placeholder="Email" />
+        <input
+          v-model="signUpEmail"
+          type="email"
+          placeholder="Email"
+        >
         <span class="error">{{ signUpErrors.email }}</span>
-        <input type="password" v-model="signUpPassword" placeholder="Password" />
+        <input
+          v-model="signUpPassword"
+          type="password"
+          placeholder="Password"
+        >
         <span class="error">{{ signUpErrors.password }}</span>
-        <button type="submit">Sign Up</button>
+        <button type="submit">
+          Sign Up
+        </button>
       </form>
       <p>
         Already have an account? <a @click="toggleMode">Sign In</a>
@@ -36,6 +66,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { validateEmail } from "@/components/helpers";
 
 const isSignIn = ref(true);
 const signInUsername = ref('');
@@ -50,11 +81,6 @@ const signUpErrors = ref({ username: '', email: '', password: '' });
 
 const toggleMode = () => {
   isSignIn.value = !isSignIn.value;
-};
-
-const validateEmail = (email: string) => {
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,4}$/;
-  return emailRegex.test(email);
 };
 
 const validateAndSaveUser = (username: string, email: string, password: string) => {
@@ -91,7 +117,6 @@ const signIn = () => {
 
   signInErrors.value.username = '';
   signInErrors.value.password = '';
-
 };
 
 const signUp = () => {
@@ -121,7 +146,7 @@ const signUp = () => {
   border-radius: 5px;
   background-color: #ffffff;
   width: 300px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .form-container h2 {

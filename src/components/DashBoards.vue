@@ -2,38 +2,93 @@
   <div class="dashboard">
     <div class="sidebar">
       <div class="profile-info">
-        <img :src="profileImageUrl" alt="Profile Image" class="profile-image" />
-        <p class="username">{{ username }}</p>
+        <img
+          :src="profileImageUrl"
+          alt="Profile Image"
+          class="profile-image"
+        >
+        <p class="username">
+          {{ username }}
+        </p>
       </div>
       <nav>
         <ul>
-          <li><router-link to="/dashboard/home">Home</router-link></li>
-          <li><router-link to="/dashboard/profiles">Profiles</router-link></li>
-          <li><router-link to="/dashboard/notifications">Notifications</router-link></li>
-          <li><router-link to="/dashboard/direct-messages">Messages</router-link></li>
-          <li><router-link to="/dashboard/bookmarks">Bookmarks</router-link></li>
-          <li><router-link to="/dashboard/lists">Lists</router-link></li>
-          <li><router-link to="/dashboard/profile">Profile</router-link></li>
-          <li><router-link to="/dashboard/following">Following</router-link></li>
+          <li>
+            <router-link to="/dashboard/home">
+              Home
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/profiles">
+              Profiles
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/notifications">
+              Notifications
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/direct-messages">
+              Messages
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/bookmarks">
+              Bookmarks
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/lists">
+              Lists
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/profile">
+              Profile
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/following">
+              Following
+            </router-link>
+          </li>
         </ul>
       </nav>
       <div class="actions">
-        <button @click="logout">Logout</button>
+        <button @click="logout">
+          Logout
+        </button>
       </div>
-
     </div>
     <div class="main-content">
       <div class="tweet-container">
-        <textarea v-model="tweetText" class="tweet-input" placeholder="What's on your mind?"></textarea>
-        <input type="file" accept="image/*" class="image-upload" />
+        <textarea
+          v-model="tweetText"
+          class="tweet-input"
+          placeholder="What's on your mind?"
+        />
+        <input
+          type="file"
+          accept="image/*"
+          class="image-upload"
+        >
 
-        <button @click="postTweet" class="tweet-button">Tweet</button>
+        <button
+          class="tweet-button"
+          @click="postTweet"
+        >
+          Tweet
+        </button>
       </div>
       <div class="tweets">
-        <div v-for="(tweet, index) in tweets" :key="index" class="tweet">
-        </div>
+        <div
+          v-for="(tweet, index) in tweets"
+          :key="index"
+          class="tweet"
+        />
       </div>
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>
@@ -49,16 +104,12 @@ const tweetText = ref('');
 const uploadedImage = ref(null);
 const tweets = reactive({ list: [] });
 
-
-
 const postTweet = () => {
-
   tweetText.value = '';
   uploadedImage.value = null;
 };
 
 const logout = () => {
-
   router.push('/');
 }
 </script>

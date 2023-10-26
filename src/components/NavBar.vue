@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="header">
-        <h1>Croaker</h1>
-    </div>
+  <div class="header">
+    <h1>Croaker</h1>
+  </div>
 </template>
 
 <style scoped>
