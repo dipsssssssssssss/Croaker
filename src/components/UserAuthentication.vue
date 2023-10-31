@@ -3,9 +3,17 @@
     <div v-if="isSignIn" class="form-container signin-form">
       <h2>Sign In</h2>
       <form @submit.prevent="signIn">
-        <input type="text" v-model="signInUsername" placeholder="Username" />
+        <input
+          type="text"
+          v-model="signInUsername"
+          placeholder="Username"
+        />
         <span class="error">{{ signInErrors.username }}</span>
-        <input type="password" v-model="signInPassword" placeholder="Password" />
+        <input
+          type="password"
+          v-model="signInPassword"
+          placeholder="Password"
+        />
         <span class="error">{{ signInErrors.password }}</span>
         <button type="submit">Sign In</button>
       </form>
@@ -17,11 +25,23 @@
     <div v-else class="form-container signup-form">
       <h2>Sign Up</h2>
       <form @submit.prevent="signUp">
-        <input type="text" v-model="signUpUsername" placeholder="Username" />
+        <input
+          type="text"
+          v-model="signUpUsername"
+          placeholder="Username"
+        />
         <span class="error">{{ signUpErrors.username }}</span>
-        <input type="email" v-model="signUpEmail" placeholder="Email" />
+        <input
+          type="email"
+          v-model="signUpEmail"
+          placeholder="Email"
+        />
         <span class="error">{{ signUpErrors.email }}</span>
-        <input type="password" v-model="signUpPassword" placeholder="Password" />
+        <input
+          type="password"
+          v-model="signUpPassword"
+          placeholder="Password"
+        />
         <span class="error">{{ signUpErrors.password }}</span>
         <button type="submit">Sign Up</button>
       </form>
@@ -88,12 +108,10 @@ const signIn = () => {
     return;
   }
 
-
   const savedUserData = localStorage.getItem('userData');
   if (savedUserData) {
     const userData = JSON.parse(savedUserData);
     if (userData.username === username && userData.password === password) {
-
       router.push('/dashboards');
     } else {
       signInErrors.value.username = 'Incorrect username or password';
@@ -183,4 +201,5 @@ a {
   margin-top: 5px;
 }
 </style>
+
 

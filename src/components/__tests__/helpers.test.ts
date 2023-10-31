@@ -30,3 +30,6 @@ it('returns true for a valid email with a single-character local part', () => {
     expect(validateEmail('m@dipshika.com')).toBe(true);
 });
 
+it('returns true for a valid email with mixed case', () => {
+    expect(validateEmail('dIPShika@email.cOm')).toBe(true);
+});

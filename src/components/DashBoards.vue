@@ -81,13 +81,6 @@
           Tweet
         </button>
       </div>
-      <div class="tweets">
-        <div
-          v-for="(tweet, index) in tweets"
-          :key="index"
-          class="tweet"
-        />
-      </div>
       <router-view />
     </div>
   </div>
@@ -95,14 +88,14 @@
 
 <script setup lang="ts">
 import router from '@/router';
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 
 const profileImageUrl = 'profile.jpg';
 const username = 'Dipshika';
 const tweetText = ref('');
 const uploadedImage = ref(null);
-const tweets = reactive({ list: [] });
+
 
 const postTweet = () => {
   tweetText.value = '';
