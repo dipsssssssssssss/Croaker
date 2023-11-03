@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/vue3";
 import DashboardsVue from "../DashBoards.vue";
 
 const meta = {
-    title: 'DashBoard',
+    title: 'DashBoards',
     component: DashboardsVue,
 } satisfies Meta;
 
